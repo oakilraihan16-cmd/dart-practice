@@ -1,0 +1,20 @@
+void main() {
+  // 1. var (Type Inference)
+  // Dart looks at the initial value and locks the type at compile-time.
+  var name = 'Alice'; 
+  name = 'Bob'; // ✅ Allowed: same type (String)
+  // name = 42;  // ❌ Error: Can't assign 'int' to 'String'
+
+  // 2. dynamic (Dynamic Typing)
+  // Opts out of static type checking completely. Can hold any type.
+  dynamic flexible = 'Hello';
+  flexible = 42;   // ✅ Allowed: changed to int
+  flexible = true; // ✅ Allowed: changed to bool
+
+  // 3. Safety Warning
+  var text = 'Dart';
+  print(text.toUpperCase()); // ✅ Checked at compile-time
+
+  dynamic risky = 100;
+  // print(risky.toUpperCase()); // ❌ Compiles fine, but CRASHES at runtime!
+}
